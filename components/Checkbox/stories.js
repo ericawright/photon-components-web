@@ -20,11 +20,21 @@ storiesOf("Checkbox", module)
   .add("Everything", () => (
     <Form>
       <ul style={{ listStyleType: "none", margin: 0, width: "50%" }}>
-        <li><Checkbox /></li>
-        <li><Checkbox label="Example label" /></li>
-        <li><Checkbox onClick={action("Clicked me!")} label="Click me!" /></li>
-        <li><Checkbox disabled={true} label="Disabled checkbox" /></li>
+        <li>
+          <Checkbox />
+        </li>
+        <li>
+          <Checkbox label="Example label" />
+        </li>
+        <li>
+          <Checkbox onClick={action("Clicked me!")} label="Click me!" />
+        </li>
+        <li>
+          <Checkbox disabled={true} label="Disabled checkbox" />
+        </li>
+        <li>
+          <Checkbox checked={true} disabled={true} label="Disabled checked checkbox" />
+        </li>
       </ul>
     </Form>
-  ))
-  ;
+  ));

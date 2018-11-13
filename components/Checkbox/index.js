@@ -4,13 +4,29 @@ import classNames from "classnames";
 import "./index.css";
 
 export const Checkbox = ({ disabled, label, ...props }) => {
-  return label ? (
-    <label className={classNames("checkbox", { "checkbox--disabled": disabled })}>
-      <input {...props} disabled={disabled} className="checkbox__field" type="checkbox" />
-      <span className="checkbox__label">{label}</span>
+  const checkbox = (
+    <input
+      className={classNames("checkbox", { "checkbox--disabled": disabled })}
+      disabled={disabled}
+      type="checkbox"
+      {...props}
+    />
+  );
+  return !label ? checkbox : (
+    <label
+      className={classNames("checkbox__label", {
+        "checkbox--disabled": disabled,
+      })}
+    >
+      {checkbox}
+      <span
+        className={classNames("checkbox__label__text", {
+          "checkbox--disabled__label__text": disabled,
+        })}
+      >
+        {label}
+      </span>
     </label>
-  ) : (
-    <input {...props} disabled={disabled} type="checkbox" />
   );
 };
 
